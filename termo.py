@@ -1,10 +1,11 @@
 import random as rand
 from termcolor import colored
-from colorama import Back
+from colorama import Back, Style
 
-with open('aula47.txt', 'r', encoding='utf-8') as arquivo:
+with open('some_words.txt', 'r', encoding='utf-8') as arquivo:
     lista_palavras = arquivo.readlines()
 
+print(Style.RESET_ALL)
 palavra_secreta = rand.choice(lista_palavras).upper()
 tamanho_palavra = len(palavra_secreta) - 1
 palavra_user = '*' * tamanho_palavra
@@ -18,7 +19,7 @@ while palavra != palavra_user:
     listado_palavra_user = list(palavra_user)
     print(f'\n{tentativas}x. Palavra Secreta: {palavra_user}')
 
-    palavra = input('Digite uma palavra de 5 letras: ')
+    palavra = input('Digite uma palavra de 5 letras: ').upper()
     contador = 0
 
     for i in palavra:
